@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Sync all branches from upstream
+      - name: Sync all branches from upstream and rebase develop onto upstream/main
         run: |
           set -euo pipefail
 
@@ -25,23 +25,42 @@ jobs:
           fi
           echo "Upstream: ${UPSTREAM}"
 
-          # Set up a bare clone of the fork
-          git clone --bare "https://x-access-token:${TOKEN}@github.com/${REPO}.git" repo
+          # Regular clone (not bare) — needed so git rebase has a working tree
+          git clone "https://x-access-token:${TOKEN}@github.com/${REPO}.git" repo
           cd repo
 
-          # Add upstream remote and fetch all branches
+          # Identity required by git rebase to author the rebased commits
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+          # Add upstream remote and fetch all branches into refs/heads/upstream/*
           git remote add upstream "https://github.com/${UPSTREAM}.git"
           git fetch upstream '+refs/heads/*:refs/heads/upstream/*'
 
           # List all upstream branches
           BRANCHES=$(git for-each-ref --format='%(refname:lstrip=3)' refs/heads/upstream/)
 
-          # Push each upstream branch to origin, overwriting with upstream state
+          # Push each upstream branch to origin, overwriting with upstream state.
+          # 'develop' is excluded here — it is managed by the rebase step below.
           for branch in $BRANCHES; do
+            if [[ "$branch" == "develop" ]]; then
+              echo "Skipping develop (will be rebased onto upstream/main instead)"
+              continue
+            fi
             echo "Syncing branch: ${branch}"
             git push origin "refs/heads/upstream/${branch}:refs/heads/${branch}" --force
           done
 
-          echo "Sync complete"
+          # Rebase develop onto the freshly synced upstream/main
+          echo "Rebasing develop onto upstream/main..."
+          git checkout develop
+          if ! git rebase refs/heads/upstream/main; then
+            echo "::error::Rebase conflict detected — manual resolution required on 'develop'"
+            git rebase --abort
+            exit 1
+          fi
+          git push origin develop --force
+
+          echo "Sync and rebase complete"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
