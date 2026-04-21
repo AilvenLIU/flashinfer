@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '*/30 * * * *' # every 30 minutes
   workflow_dispatch: # on button click
+  push:
+    branches:
+      - "*"
 
 jobs:
   sync:
@@ -15,7 +18,7 @@ jobs:
           set -euo pipefail
 
           REPO="${{ github.repository }}"
-          TOKEN="${{ secrets.GITHUB_TOKEN }}"
+          TOKEN="${{ secrets.FORK_SYNC_TOKEN }}"
 
           # Get upstream (parent) repo via GitHub API
           UPSTREAM=$(gh api "repos/${REPO}" --jq '.parent.full_name')
