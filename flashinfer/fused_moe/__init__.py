@@ -170,6 +170,10 @@ from .trtllm_gen_routing import (  # noqa: F401
     TrtllmGenRoutingResult as TrtllmGenRoutingResult,
     trtllm_gen_routing as trtllm_gen_routing,
 )
+from .frost_selected import (  # noqa: F401
+    frost_grouped_gemm1_swiglu,
+    frost_grouped_gemm1_swiglu_workspace_size,
+)
 
 from .bgmv_moe import (  # noqa: F401
     BGMVMoEBlackwellPlan as BGMVMoEBlackwellPlan,
@@ -343,6 +347,8 @@ __all__ = [
     "hash_topk",
     "TrtllmGenRoutingResult",
     "trtllm_gen_routing",
+    "frost_grouped_gemm1_swiglu",
+    "frost_grouped_gemm1_swiglu_workspace_size",
     "bgmv_moe",
     "BGMVMoEBlackwellPlan",
     "bgmv_moe_shrink",

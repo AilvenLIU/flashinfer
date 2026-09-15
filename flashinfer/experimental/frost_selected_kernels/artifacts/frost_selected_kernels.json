@@ -1,0 +1,1134 @@
+{
+  "kernels": [
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 12,
+        "groups": 12,
+        "k": 3072,
+        "n": 7168,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_stg",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_stg.o",
+        "sha256": "f70f0910298ab0181806e6da9023c92fd7fa5346306c2e86c909edfdb57d9831"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "c61a5e4eb5c5d26a920d8504c655fa9a00919484",
+      "symbol": "flashinfer_frost_grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_stg",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 19072
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 12,
+        "groups": 12,
+        "k": 3072,
+        "n": 7168,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_tma",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_tma.o",
+        "sha256": "3da2e2c254f5b12626052683ed3c5e1fe9f9710ed07626aa0673752e147de8b2"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "c61a5e4eb5c5d26a920d8504c655fa9a00919484",
+      "symbol": "flashinfer_frost_grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_tma",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 12,
+        "groups": 12,
+        "k": 3072,
+        "n": 7168,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_stg",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_stg.o",
+        "sha256": "42350cb94b617827b852117ed2c00619561cb866e8bda1db306befeb8478ef68"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "c61a5e4eb5c5d26a920d8504c655fa9a00919484",
+      "symbol": "flashinfer_frost_grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_stg",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 19072
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 12,
+        "groups": 12,
+        "k": 3072,
+        "n": 7168,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_tma",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_tma.o",
+        "sha256": "3ee12cc0a6bfffa005bb8581ae0da414d08c6980e47a6206d4b7aad42c649bb6"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "c61a5e4eb5c5d26a920d8504c655fa9a00919484",
+      "symbol": "flashinfer_frost_grouped_fc2_sm_100a_e12_n7168_k3072_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_tma",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 8,
+        "groups": 8,
+        "k": 256,
+        "n": 128,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_stg",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_stg.o",
+        "sha256": "bb239c10a1b7c2aa32bfbf3ec60e52409802f56ae3c31ced6e2f043f3ed8152b"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "c61a5e4eb5c5d26a920d8504c655fa9a00919484",
+      "symbol": "flashinfer_frost_grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_stg",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 19072
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 8,
+        "groups": 8,
+        "k": 256,
+        "n": 128,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_tma",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_tma.o",
+        "sha256": "a7355542ba23a7f323c6c2c711dd414df2ab0007b08764da14f66b5f3da52ebb"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "c61a5e4eb5c5d26a920d8504c655fa9a00919484",
+      "symbol": "flashinfer_frost_grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_tma",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 8,
+        "groups": 8,
+        "k": 256,
+        "n": 128,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_stg",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_stg.o",
+        "sha256": "d38c0816585f8533cf069402d80f85d15e4eb508752146af38b366368107ee13"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "c61a5e4eb5c5d26a920d8504c655fa9a00919484",
+      "symbol": "flashinfer_frost_grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_stg",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 19072
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 8,
+        "groups": 8,
+        "k": 256,
+        "n": 128,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_tma",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_tma.o",
+        "sha256": "2ed78decef8f3eeca498e47299b56223d7ed68428518f39700a27eb4a0055b23"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "c61a5e4eb5c5d26a920d8504c655fa9a00919484",
+      "symbol": "flashinfer_frost_grouped_fc2_sm_100a_e8_n128_k256_g8_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_tma",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 8,
+        "groups": 8,
+        "k": 4096,
+        "n": 14336,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_stg_f32bcc0c0ec6",
+      "launch": {
+        "tail": [
+          "output",
+          "scale"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_stg_f32bcc0c0ec6.o",
+        "sha256": "8d1d701ed10a6333a0db5346a2349688a432b9442c76fcaea0ed02006422c33a"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "f32bcc0c0ec6243c788183d23d3e8a0f25efcec4",
+      "symbol": "flashinfer_frost_grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_stg_f32bcc0c0ec6",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 19072
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 8,
+        "groups": 8,
+        "k": 4096,
+        "n": 14336,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_tma_f32bcc0c0ec6",
+      "launch": {
+        "tail": [
+          "scale",
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_tma_f32bcc0c0ec6.o",
+        "sha256": "894d9d48c862e31a5f8055bca3c66ff6959f4646169046f1f1ec3f30b0191a74"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "f32bcc0c0ec6243c788183d23d3e8a0f25efcec4",
+      "symbol": "flashinfer_frost_grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_tma_f32bcc0c0ec6",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 8,
+        "groups": 8,
+        "k": 4096,
+        "n": 14336,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_stg_f32bcc0c0ec6",
+      "launch": {
+        "tail": [
+          "output",
+          "scale"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_stg_f32bcc0c0ec6.o",
+        "sha256": "47a9a9cd11336fa11bf163a5258230980e967f0e4545ccbe7b8d5659d863e731"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "f32bcc0c0ec6243c788183d23d3e8a0f25efcec4",
+      "symbol": "flashinfer_frost_grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_stg_f32bcc0c0ec6",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 19072
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 8,
+        "groups": 8,
+        "k": 4096,
+        "n": 14336,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_tma_f32bcc0c0ec6",
+      "launch": {
+        "tail": [
+          "scale",
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_tma_f32bcc0c0ec6.o",
+        "sha256": "8a803cc71dea64f763b5e7921466c0f1ffbd44a7971837581a9e3b39ab90b913"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "f32bcc0c0ec6243c788183d23d3e8a0f25efcec4",
+      "symbol": "flashinfer_frost_grouped_gemm1_swiglu_sm100_e8_n14336_k4096_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_tma_f32bcc0c0ec6",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 12,
+        "groups": 12,
+        "k": 3072,
+        "n": 7168,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_gemm2_sm100_e12_n7168_k3072_CONFIG_sm100_128x256x128_128x256x32_cluster2x2_2ctamma_stg_f32bcc0c0ec6",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_gemm2_sm100_e12_n7168_k3072_CONFIG_sm100_128x256x128_128x256x32_cluster2x2_2ctamma_stg_f32bcc0c0ec6.o",
+        "sha256": "6057e5bbbae8ba402366430593225d3b9c64ebe9a76be9d6f92ecad5ec8aedbc"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "f32bcc0c0ec6243c788183d23d3e8a0f25efcec4",
+      "symbol": "flashinfer_frost_grouped_gemm2_sm100_e12_n7168_k3072_CONFIG_sm100_128x256x128_128x256x32_cluster2x2_2ctamma_stg_f32bcc0c0ec6",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x2_2ctamma"
+      },
+      "workspace_bytes": 17024
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 12,
+        "groups": 12,
+        "k": 3072,
+        "n": 7168,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_gemm2_sm100_e12_n7168_k3072_CONFIG_sm100_128x256x128_128x256x32_cluster2x2_2ctamma_tma_f32bcc0c0ec6",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_gemm2_sm100_e12_n7168_k3072_CONFIG_sm100_128x256x128_128x256x32_cluster2x2_2ctamma_tma_f32bcc0c0ec6.o",
+        "sha256": "2aed4e4a00579c2b38907869684dad0351da026722dbbd31da112ed8189a707f"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "f32bcc0c0ec6243c788183d23d3e8a0f25efcec4",
+      "symbol": "flashinfer_frost_grouped_gemm2_sm100_e12_n7168_k3072_CONFIG_sm100_128x256x128_128x256x32_cluster2x2_2ctamma_tma_f32bcc0c0ec6",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x2_2ctamma"
+      },
+      "workspace_bytes": 33920
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 8,
+        "groups": 8,
+        "k": 14336,
+        "n": 4096,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_stg_f32bcc0c0ec6",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_stg_f32bcc0c0ec6.o",
+        "sha256": "884e584876ff67e52cebcf94623a5ebf600a89124523b757214a6736d29cc5b2"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "f32bcc0c0ec6243c788183d23d3e8a0f25efcec4",
+      "symbol": "flashinfer_frost_grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_stg_f32bcc0c0ec6",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 19072
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 8,
+        "groups": 8,
+        "k": 14336,
+        "n": 4096,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_tma_f32bcc0c0ec6",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_tma_f32bcc0c0ec6.o",
+        "sha256": "339ec394d3db2e511a51c875ac428ad2bb52cf94aad6e8cd05610eb7ab3c9eaa"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "f32bcc0c0ec6243c788183d23d3e8a0f25efcec4",
+      "symbol": "flashinfer_frost_grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_tma_f32bcc0c0ec6",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 8,
+        "groups": 8,
+        "k": 14336,
+        "n": 4096,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_stg_f32bcc0c0ec6",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_stg_f32bcc0c0ec6.o",
+        "sha256": "91af04db183fdae2605a38c8214ec8f76528b60a017d139220098e4818a0575f"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "f32bcc0c0ec6243c788183d23d3e8a0f25efcec4",
+      "symbol": "flashinfer_frost_grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_stg_f32bcc0c0ec6",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 19072
+    },
+    {
+      "abi": "frost_grouped_gemm2_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "identity",
+        "experts": 8,
+        "groups": 8,
+        "k": 14336,
+        "n": 4096,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_tma_f32bcc0c0ec6",
+      "launch": {
+        "tail": [
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_tma_f32bcc0c0ec6.o",
+        "sha256": "393258e12d6a0c2acab9679d26738b38ee5ca8eb5633498073e6a20e6610ef3f"
+      },
+      "op": "grouped_gemm2",
+      "producer_revision": "f32bcc0c0ec6243c788183d23d3e8a0f25efcec4",
+      "symbol": "flashinfer_frost_grouped_gemm2_sm100_e8_n4096_k14336_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_tma_f32bcc0c0ec6",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 12,
+        "groups": 12,
+        "k": 7168,
+        "n": 3072,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_stg",
+      "launch": {
+        "tail": [
+          "output",
+          "scale"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_stg.o",
+        "sha256": "731c0979d8b650542ee75e04f3f9afde6a48b6c22b2729a6ea14ca276b9d4184"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "6f539860d6e737c59004c1fc3c1c02b2fe25b64e",
+      "symbol": "flashinfer_frost_grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_stg",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 19072
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 12,
+        "groups": 12,
+        "k": 7168,
+        "n": 3072,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_tma",
+      "launch": {
+        "tail": [
+          "scale",
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_tma.o",
+        "sha256": "ce40a70bce4d8ff42451ef0ca023a8ea6c09debb64a4132b720b0c260c7984af"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "6f539860d6e737c59004c1fc3c1c02b2fe25b64e",
+      "symbol": "flashinfer_frost_grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc_tma",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 12,
+        "groups": 12,
+        "k": 7168,
+        "n": 3072,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_stg",
+      "launch": {
+        "tail": [
+          "output",
+          "scale"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_stg.o",
+        "sha256": "f8e9651c040173802e83f35b4dbedb7ef6bb2c94cb9a83b73246bb79f4cc1e6c"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "6f539860d6e737c59004c1fc3c1c02b2fe25b64e",
+      "symbol": "flashinfer_frost_grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_stg",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "stg",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 19072
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 12,
+        "groups": 12,
+        "k": 7168,
+        "n": 3072,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_tma",
+      "launch": {
+        "tail": [
+          "scale",
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_tma.o",
+        "sha256": "85bbf2d6815a437e58af938fec1551508d3bdee07aee344c97f3f264d0ce275c"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "6f539860d6e737c59004c1fc3c1c02b2fe25b64e",
+      "symbol": "flashinfer_frost_grouped_swiglu_sm_100a_e12_n3072_k7168_g12_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc_tma",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "store_mode": "tma",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 8,
+        "groups": 8,
+        "k": 128,
+        "n": 256,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc",
+      "launch": {
+        "tail": [
+          "scale",
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc.o",
+        "sha256": "d4068661afcd4a18bf2211072228459b3370b9a8ff88fd2bd8394d68bf5c9693"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "6f539860d6e737c59004c1fc3c1c02b2fe25b64e",
+      "symbol": "flashinfer_frost_grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma_1cta_clc",
+      "tactic": {
+        "cta_group": 1,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster1x1_1ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 8,
+        "groups": 8,
+        "k": 128,
+        "n": 256,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x128x128_128x128x32_cluster2x1_2ctamma_2cta_clc",
+      "launch": {
+        "tail": [
+          "scale",
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x128x128_128x128x32_cluster2x1_2ctamma_2cta_clc.o",
+        "sha256": "94f4e62d2b01843ef2a66f25bed669a80868248b96b2afd95b0c850528ae8e5c"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "6f539860d6e737c59004c1fc3c1c02b2fe25b64e",
+      "symbol": "flashinfer_frost_grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x128x128_128x128x32_cluster2x1_2ctamma_2cta_clc",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x128_128x128x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 8,
+        "groups": 8,
+        "k": 128,
+        "n": 256,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x128x64_128x128x32_cluster2x1_2ctamma_2cta_clc",
+      "launch": {
+        "tail": [
+          "scale",
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x128x64_128x128x32_cluster2x1_2ctamma_2cta_clc.o",
+        "sha256": "32a4159fcfebc51eea6a8c46be33fe0e6d43d50c9422f8f515cf78eb3041ecdc"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "6f539860d6e737c59004c1fc3c1c02b2fe25b64e",
+      "symbol": "flashinfer_frost_grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x128x64_128x128x32_cluster2x1_2ctamma_2cta_clc",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 64,
+          "m": 128,
+          "n": 128
+        },
+        "scheduler": "clc",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x128x64_128x128x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 38016
+    },
+    {
+      "abi": "frost_grouped_gemm1_swiglu_v1",
+      "arch": "sm_100a",
+      "contract": {
+        "activation": "silu(gate) * up",
+        "experts": 8,
+        "groups": 8,
+        "k": 128,
+        "n": 256,
+        "output_dtype": "bfloat16",
+        "s": {
+          "min": 1
+        },
+        "token_dtype": "bfloat16",
+        "weight_dtype": "bfloat16"
+      },
+      "id": "grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc",
+      "launch": {
+        "tail": [
+          "scale",
+          "output"
+        ]
+      },
+      "object": {
+        "path": "objects/grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc.o",
+        "sha256": "edc8db1ac4f0a0f0d1de842dce6d67d904aa8ed517ac92a8b429856323acdf8d"
+      },
+      "op": "grouped_gemm1_swiglu",
+      "producer_revision": "6f539860d6e737c59004c1fc3c1c02b2fe25b64e",
+      "symbol": "flashinfer_frost_grouped_swiglu_sm_100a_e8_n256_k128_g8_CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma_2cta_clc",
+      "tactic": {
+        "cta_group": 2,
+        "cta_tile": {
+          "k_bytes": 128,
+          "m": 128,
+          "n": 256
+        },
+        "scheduler": "clc",
+        "template": "sm100_moe_grouped_matmul_fwd.py",
+        "tile": "CONFIG_sm100_128x256x128_128x256x32_cluster2x1_2ctamma"
+      },
+      "workspace_bytes": 38016
+    }
+  ],
+  "producer": {
+    "name": "frost"
+  },
+  "schema_version": 1
+}

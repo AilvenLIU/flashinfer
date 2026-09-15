@@ -21,7 +21,7 @@ by measuring each runner's best tactic, then dispatches to the winner.
 from __future__ import annotations
 
 from statistics import median
-from typing import Any, Dict, List, Optional, Tuple, Type, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple, Type, Union
 
 import torch
 
@@ -47,6 +47,7 @@ from .api import (
     MoEActivationPack,
     MoEConfig,
     MoEWeightPack,
+    QuantFormat,
     TrtllmBf16Config,
     TrtllmFp4Config,
     TrtllmFp8BlockConfig,
@@ -77,11 +78,15 @@ from .runners import (
 )
 from .utils import map_to_hybrid_bucket
 
+if TYPE_CHECKING:
+    from ..experimental.frost_selected_kernels.moe import FrostBf16MoeRunner
+
 
 # Union of the concrete runners the layer dispatches to.  All share
 # backend_key / tuning_config / pack_inputs as attributes or class members;
 # typing the list with this Union gives mypy the visibility it needs.
 _RunnerT = Union[
+    "FrostBf16MoeRunner",
     CakeWarpDecodeRunner,
     CutlassBf16Runner,
     CutlassFp8BlockRunner,
@@ -173,6 +178,8 @@ class MoELayer:
 
         major, minor = get_compute_capability(self.device)
         arch = major * 10 + minor
+        self._arch = arch
+        self._frost_runner: Optional[FrostBf16MoeRunner] = None
 
         # Build one runner per compatible backend
         self.runners: List[_RunnerT] = []
@@ -249,7 +256,7 @@ class MoELayer:
         # caches its own winner; the mode qualifier keeps a winner tuned for
         # one routing input style (e.g. pre-routed → CuteDSL) from being
         # dispatched a pack it cannot execute (FromLogits).
-        self._winners: Dict[Tuple[int, Any], Tuple[_RunnerT, Any]] = {}
+        self._winners: Dict[tuple, Tuple[_RunnerT, Any]] = {}
         # Backend key selected on the most recent call (introspection hook).
         self._last_winner_backend: Optional[str] = None
 
@@ -303,6 +310,9 @@ class MoELayer:
         # mode-qualified cache key below.
         mode = act_pack.routing_input_mode
         runners = [r for r in self.runners if mode in r.supported_routing_modes]
+        frost = self._additional_frost_candidate(act_pack, weight_pack)
+        if frost is not None:
+            runners.append(frost)
         if not runners:
             raise NotImplementedError(
                 f"MoELayer: none of the usable backends "
@@ -311,18 +321,56 @@ class MoELayer:
             )
 
         bucket = map_to_hybrid_bucket(act_pack.num_tokens, ceiling)
-        winner = self._winners.get((bucket, mode))
+        # Frost plans have exact geometry. Keep their cache separate from the
+        # original bucket cache, including calls with unsupported weight overrides.
+        winner_key = (
+            (bucket, mode, "frost", tuple(act_pack.hidden_states_q.shape))
+            if frost is not None
+            else (bucket, mode)
+        )
+        winner = self._winners.get(winner_key)
         if winner is None:
             winner = self._select_winner(act_pack, weight_pack, runners)
-            self._winners[(bucket, mode)] = winner
+            self._winners[winner_key] = winner
         runner, tactic = winner
         self._last_winner_backend = runner.backend_key
+        if frost is not None and runner is frost:
+            from ..api_logging import warn_experimental_backend_once
+
+            warn_experimental_backend_once("MoELayer", runner.backend_key)
 
         inputs = runner.pack_inputs(act_pack, weight_pack)
         return runner.forward(
             inputs,
             tactic=tactic,
             **runner.launch_kwargs_for(inputs),
+        )
+
+    def _additional_frost_candidate(self, act_pack, weight_pack):
+        # Scoped BF16 PoC: unchanged user API, automatic competition during
+        # autotune, then reuse in inference. No imports/JIT for other workloads.
+        # This automatic opt-in is intentional for this integration branch;
+        # it is an exception to the usual experimental-backend environment gate.
+        if (
+            getattr(self, "_arch", None) != 100
+            or self.config.quant.pair != (QuantFormat.BF16, QuantFormat.BF16)
+            or (not self.tuner.is_tuning_mode and self._frost_runner is None)
+        ):
+            return None
+        from ..experimental.frost_selected_kernels.support import large_bf16_moe
+
+        if not large_bf16_moe(self.config, act_pack, self._arch):
+            return None
+        runner = self._frost_runner
+        if runner is None:
+            from ..experimental.frost_selected_kernels.moe import automatic_candidate
+
+            runner = automatic_candidate(self.config, self.device)
+            self._frost_runner = runner
+        return (
+            runner
+            if runner is not None and runner.accepts(act_pack, weight_pack)
+            else None
         )
 
     def _select_winner(
